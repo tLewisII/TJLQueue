@@ -7,23 +7,43 @@
 //
 
 #import "TJLViewController.h"
+#import "TJLQueue.h"
 
-@interface TJLViewController ()
+@interface TJLViewController () <UITableViewDataSource>
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic) TJLQueue *queue;
+@property(strong, nonatomic) NSArray *datasource;
 
 @end
 
 @implementation TJLViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    self.queue = [TJLQueue new];
+    for(NSUInteger i = 0; i < 20; i++) {
+        [self.queue addObject:@(i)];
+    }
+    self.datasource = [self.queue toArray];
+    self.tableView.dataSource = self;
+
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.queue.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellID = @"CELL";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.datasource[indexPath.row]];
+
+    return cell;
+}
+
 
 @end
