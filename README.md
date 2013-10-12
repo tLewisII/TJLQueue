@@ -4,18 +4,18 @@ TJLQueue
 A implementation of a Queue data structure. 
 <h2>Installation</h2>
 <hr>
-[Cocoapods](http://www.cocoapods.org) support is forthcoming, so in the meantime just grab the Source folder, drop it into your project and then import "TJLStack.h" wherever you need it.
+[Cocoapods](http://www.cocoapods.org) support is forthcoming, so in the meantime just grab the Source folder, drop it into your project and then import "TJLQueue.h" wherever you need it.
 <h2>Usage</h2>
 <hr>
 `+ new`<br>
-`- push:`<br>
-`- pop`<br>
+`- addObject:`<br>
+`- remove`<br>
 `- toArray`<br>
 
 That is most of what you need. Fast Enumeration is also supported. An example project is included so you can see some possible usage.
 
 <h1>License</h1>
-If you use TJLStack and you like it, feel free to let me know, <terry@ploverproductions.com>. If you have any issue or want to make improvements, submit a pull request.<br><br>
+If you use TJLQueue and you like it, feel free to let me know, <terry@ploverproductions.com>. If you have any issue or want to make improvements, submit a pull request.<br><br>
 
 The MIT License (MIT)
 Copyright (c) 2013 Terry Lewis II
